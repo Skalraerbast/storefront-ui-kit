@@ -73,6 +73,9 @@ function Index() {
       {/* Rooms & booking form */}
       <RoomsBookingSection />
 
+      {/* Conference booking */}
+      <ConferenceSection />
+
       {/* Footer */}
       <Footer />
     </div>
