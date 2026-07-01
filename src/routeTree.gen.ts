@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as GalleriRouteImport } from './routes/galleri'
 import { Route as BokaRumRouteImport } from './routes/boka-rum'
 import { Route as BokaKonferensRouteImport } from './routes/boka-konferens'
 import { Route as IndexRouteImport } from './routes/index'
 
+const GalleriRoute = GalleriRouteImport.update({
+  id: '/galleri',
+  path: '/galleri',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BokaRumRoute = BokaRumRouteImport.update({
   id: '/boka-rum',
   path: '/boka-rum',
@@ -33,34 +39,45 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/boka-konferens': typeof BokaKonferensRoute
   '/boka-rum': typeof BokaRumRoute
+  '/galleri': typeof GalleriRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/boka-konferens': typeof BokaKonferensRoute
   '/boka-rum': typeof BokaRumRoute
+  '/galleri': typeof GalleriRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/boka-konferens': typeof BokaKonferensRoute
   '/boka-rum': typeof BokaRumRoute
+  '/galleri': typeof GalleriRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/boka-konferens' | '/boka-rum'
+  fullPaths: '/' | '/boka-konferens' | '/boka-rum' | '/galleri'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/boka-konferens' | '/boka-rum'
-  id: '__root__' | '/' | '/boka-konferens' | '/boka-rum'
+  to: '/' | '/boka-konferens' | '/boka-rum' | '/galleri'
+  id: '__root__' | '/' | '/boka-konferens' | '/boka-rum' | '/galleri'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BokaKonferensRoute: typeof BokaKonferensRoute
   BokaRumRoute: typeof BokaRumRoute
+  GalleriRoute: typeof GalleriRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/galleri': {
+      id: '/galleri'
+      path: '/galleri'
+      fullPath: '/galleri'
+      preLoaderRoute: typeof GalleriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/boka-rum': {
       id: '/boka-rum'
       path: '/boka-rum'
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BokaKonferensRoute: BokaKonferensRoute,
   BokaRumRoute: BokaRumRoute,
+  GalleriRoute: GalleriRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
