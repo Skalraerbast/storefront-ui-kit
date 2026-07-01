@@ -56,6 +56,9 @@ function Index() {
 
       {/* Sustainability goals grid */}
       <SustainabilityGoals />
+
+      {/* Bra att veta – practical info cards */}
+      <GoodToKnow />
     </div>
   );
 }
