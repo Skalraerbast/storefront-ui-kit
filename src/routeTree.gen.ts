@@ -9,11 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as NyheterRouteImport } from './routes/nyheter'
 import { Route as GalleriRouteImport } from './routes/galleri'
 import { Route as BokaRumRouteImport } from './routes/boka-rum'
 import { Route as BokaKonferensRouteImport } from './routes/boka-konferens'
 import { Route as IndexRouteImport } from './routes/index'
 
+const NyheterRoute = NyheterRouteImport.update({
+  id: '/nyheter',
+  path: '/nyheter',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleriRoute = GalleriRouteImport.update({
   id: '/galleri',
   path: '/galleri',
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/boka-konferens': typeof BokaKonferensRoute
   '/boka-rum': typeof BokaRumRoute
   '/galleri': typeof GalleriRoute
+  '/nyheter': typeof NyheterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/boka-konferens': typeof BokaKonferensRoute
   '/boka-rum': typeof BokaRumRoute
   '/galleri': typeof GalleriRoute
+  '/nyheter': typeof NyheterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,20 @@ export interface FileRoutesById {
   '/boka-konferens': typeof BokaKonferensRoute
   '/boka-rum': typeof BokaRumRoute
   '/galleri': typeof GalleriRoute
+  '/nyheter': typeof NyheterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/boka-konferens' | '/boka-rum' | '/galleri'
+  fullPaths: '/' | '/boka-konferens' | '/boka-rum' | '/galleri' | '/nyheter'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/boka-konferens' | '/boka-rum' | '/galleri'
-  id: '__root__' | '/' | '/boka-konferens' | '/boka-rum' | '/galleri'
+  to: '/' | '/boka-konferens' | '/boka-rum' | '/galleri' | '/nyheter'
+  id:
+    | '__root__'
+    | '/'
+    | '/boka-konferens'
+    | '/boka-rum'
+    | '/galleri'
+    | '/nyheter'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,10 +82,18 @@ export interface RootRouteChildren {
   BokaKonferensRoute: typeof BokaKonferensRoute
   BokaRumRoute: typeof BokaRumRoute
   GalleriRoute: typeof GalleriRoute
+  NyheterRoute: typeof NyheterRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/nyheter': {
+      id: '/nyheter'
+      path: '/nyheter'
+      fullPath: '/nyheter'
+      preLoaderRoute: typeof NyheterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/galleri': {
       id: '/galleri'
       path: '/galleri'
@@ -107,6 +130,7 @@ const rootRouteChildren: RootRouteChildren = {
   BokaKonferensRoute: BokaKonferensRoute,
   BokaRumRoute: BokaRumRoute,
   GalleriRoute: GalleriRoute,
+  NyheterRoute: NyheterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
