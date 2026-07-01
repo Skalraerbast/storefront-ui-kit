@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
+import logoAsset from "@/assets/lilla-hotellet-logo.png.asset.json";
 
 const navItems = [
   { to: "/", label: "Hem" },
