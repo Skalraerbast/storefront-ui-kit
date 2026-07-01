@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { BrandButton } from "@/components/ui/BrandButton";
-import { BrandInput } from "@/components/ui/BrandInput";
-import { BrandCard } from "@/components/ui/BrandCard";
 import { VisionSection } from "@/components/VisionSection";
 
 
@@ -34,8 +32,6 @@ function Index() {
           </a>
         </div>
       </section>
-
-      {/* Vision section – editorial tokens with brand CTAs */}
 
       {/* Vision section – editorial tokens with brand CTAs */}
       <VisionSection />
