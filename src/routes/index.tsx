@@ -4,6 +4,7 @@ import { BrandButton } from "@/components/ui/BrandButton";
 import { StaffedHours } from "@/components/StaffedHours";
 import { VisionSection } from "@/components/VisionSection";
 import { WelcomeSection } from "@/components/WelcomeSection";
+import { SustainabilityGoals } from "@/components/SustainabilityGoals";
 
 
 
@@ -51,6 +52,9 @@ function Index() {
 
       {/* Welcome / intro copy section */}
       <WelcomeSection />
+
+      {/* Sustainability goals grid */}
+      <SustainabilityGoals />
     </div>
   );
 }
