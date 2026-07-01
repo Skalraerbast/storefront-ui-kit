@@ -7,6 +7,7 @@ import { WelcomeSection } from "@/components/WelcomeSection";
 import { SustainabilityGoals } from "@/components/SustainabilityGoals";
 import { GoodToKnow } from "@/components/GoodToKnow";
 import { RoomsBookingSection } from "@/components/RoomsBookingSection";
+import { ConferenceSection } from "@/components/ConferenceSection";
 import { Footer } from "@/components/Footer";
 import logoAsset from "@/assets/lilla-hotellet-logo.png.asset.json";
 
@@ -71,6 +72,9 @@ function Index() {
 
       {/* Rooms & booking form */}
       <RoomsBookingSection />
+
+      {/* Conference booking */}
+      <ConferenceSection />
 
       {/* Footer */}
       <Footer />
