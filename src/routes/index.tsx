@@ -60,6 +60,9 @@ function Index() {
 
       {/* Bra att veta – practical info cards */}
       <GoodToKnow />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
