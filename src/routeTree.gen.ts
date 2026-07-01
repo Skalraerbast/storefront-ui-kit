@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as NyheterRouteImport } from './routes/nyheter'
+import { Route as LangtidsboendeRouteImport } from './routes/langtidsboende'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as GalleriRouteImport } from './routes/galleri'
 import { Route as BokaRumRouteImport } from './routes/boka-rum'
@@ -22,6 +23,11 @@ import { Route as RumDubbelrumRouteImport } from './routes/rum.dubbelrum'
 const NyheterRoute = NyheterRouteImport.update({
   id: '/nyheter',
   path: '/nyheter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangtidsboendeRoute = LangtidsboendeRouteImport.update({
+  id: '/langtidsboende',
+  path: '/langtidsboende',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KontaktRoute = KontaktRouteImport.update({
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/boka-rum': typeof BokaRumRoute
   '/galleri': typeof GalleriRoute
   '/kontakt': typeof KontaktRoute
+  '/langtidsboende': typeof LangtidsboendeRoute
   '/nyheter': typeof NyheterRoute
   '/rum/dubbelrum': typeof RumDubbelrumRoute
   '/rum/enkelrum': typeof RumEnkelrumRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/boka-rum': typeof BokaRumRoute
   '/galleri': typeof GalleriRoute
   '/kontakt': typeof KontaktRoute
+  '/langtidsboende': typeof LangtidsboendeRoute
   '/nyheter': typeof NyheterRoute
   '/rum/dubbelrum': typeof RumDubbelrumRoute
   '/rum/enkelrum': typeof RumEnkelrumRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/boka-rum': typeof BokaRumRoute
   '/galleri': typeof GalleriRoute
   '/kontakt': typeof KontaktRoute
+  '/langtidsboende': typeof LangtidsboendeRoute
   '/nyheter': typeof NyheterRoute
   '/rum/dubbelrum': typeof RumDubbelrumRoute
   '/rum/enkelrum': typeof RumEnkelrumRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/boka-rum'
     | '/galleri'
     | '/kontakt'
+    | '/langtidsboende'
     | '/nyheter'
     | '/rum/dubbelrum'
     | '/rum/enkelrum'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/boka-rum'
     | '/galleri'
     | '/kontakt'
+    | '/langtidsboende'
     | '/nyheter'
     | '/rum/dubbelrum'
     | '/rum/enkelrum'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/boka-rum'
     | '/galleri'
     | '/kontakt'
+    | '/langtidsboende'
     | '/nyheter'
     | '/rum/dubbelrum'
     | '/rum/enkelrum'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   BokaRumRoute: typeof BokaRumRoute
   GalleriRoute: typeof GalleriRoute
   KontaktRoute: typeof KontaktRoute
+  LangtidsboendeRoute: typeof LangtidsboendeRoute
   NyheterRoute: typeof NyheterRoute
   RumDubbelrumRoute: typeof RumDubbelrumRoute
   RumEnkelrumRoute: typeof RumEnkelrumRoute
@@ -154,6 +167,13 @@ declare module '@tanstack/react-router' {
       path: '/nyheter'
       fullPath: '/nyheter'
       preLoaderRoute: typeof NyheterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/langtidsboende': {
+      id: '/langtidsboende'
+      path: '/langtidsboende'
+      fullPath: '/langtidsboende'
+      preLoaderRoute: typeof LangtidsboendeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kontakt': {
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   BokaRumRoute: BokaRumRoute,
   GalleriRoute: GalleriRoute,
   KontaktRoute: KontaktRoute,
+  LangtidsboendeRoute: LangtidsboendeRoute,
   NyheterRoute: NyheterRoute,
   RumDubbelrumRoute: RumDubbelrumRoute,
   RumEnkelrumRoute: RumEnkelrumRoute,
