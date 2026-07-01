@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
 import logoAsset from "@/assets/lilla-hotellet-logo.png.asset.json";
@@ -13,10 +13,12 @@ const navItems = [
 ] as const;
 
 const announcements = [
-  "Välkommen till lilla hotellet",
-  "Boka ditt rum direkt hos oss – bästa pris garanterat",
-  "Nu öppnar vi upp för konferensbokningar hösten 2026",
+  { label: "Välkommen till lilla hotellet", to: null },
+  { label: "Boka rum på Lilla Hotellet", to: "/boka-rum" as const },
+  { label: "Boka konferens på Lilla Hotellet", to: "/boka-konferens" as const },
 ];
+
+const ROTATE_MS = 4000;
 
 export function Header() {
   const [announceIdx, setAnnounceIdx] = useState(0);
