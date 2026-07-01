@@ -9,7 +9,7 @@ import { GoodToKnow } from "@/components/GoodToKnow";
 import { RoomsBookingSection } from "@/components/RoomsBookingSection";
 import { ConferenceSection } from "@/components/ConferenceSection";
 import { Footer } from "@/components/Footer";
-import logoAsset from "@/assets/lilla-hotellet-logo.png.asset.json";
+import { HeroCarousel } from "@/components/HeroCarousel";
 
 
 
@@ -21,13 +21,9 @@ function Index() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <section className="relative isolate flex min-h-[70vh] items-center justify-center overflow-hidden bg-header/90 px-6 py-24 text-header-foreground">
-        <img
-          src={logoAsset.url}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 m-auto h-[80%] w-auto max-w-none opacity-[0.06]"
-        />
+      <section className="relative isolate flex min-h-[80vh] items-center justify-center overflow-hidden px-6 py-24 text-header-foreground">
+        <HeroCarousel />
+
         <div className="relative mx-auto max-w-3xl text-center">
           <h1 className="font-display text-4xl tracking-wide sm:text-5xl lg:text-6xl">
             Välkommen hem till Lilla Hotellet
