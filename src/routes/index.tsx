@@ -3,6 +3,8 @@ import { Header } from "@/components/Header";
 import { BrandButton } from "@/components/ui/BrandButton";
 import { BrandInput } from "@/components/ui/BrandInput";
 import { BrandCard } from "@/components/ui/BrandCard";
+import { VisionSection } from "@/components/VisionSection";
+
 
 export const Route = createFileRoute("/")({
   component: Index,
