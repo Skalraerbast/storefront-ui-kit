@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { BrandButton } from "@/components/ui/BrandButton";
+import { StaffedHours } from "@/components/StaffedHours";
 import { VisionSection } from "@/components/VisionSection";
 
 
@@ -32,6 +33,9 @@ function Index() {
           </a>
         </div>
       </section>
+
+      {/* Bemannade tider – staffed hours info card */}
+      <StaffedHours />
 
       {/* Vision section – editorial tokens with brand CTAs */}
       <VisionSection />
