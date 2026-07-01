@@ -69,6 +69,9 @@ function Index() {
       {/* Bra att veta – practical info cards */}
       <GoodToKnow />
 
+      {/* Rooms & booking form */}
+      <RoomsBookingSection />
+
       {/* Footer */}
       <Footer />
     </div>
