@@ -9,6 +9,12 @@
   --color-header: var(--header);
   --color-header-foreground: var(--header-foreground);
   --color-header-accent: var(--header-accent);
+  --color-cream: var(--cream);
+  --color-cream-foreground: var(--cream-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-ink: var(--ink);
+
 }
 
 
@@ -76,6 +82,13 @@
   --header: oklch(0.48 0.004 260);
   --header-foreground: oklch(0.985 0 0);
   --header-accent: oklch(0.94 0.015 80);
+  /* Brand tokens extracted from Lilla Hotellet screenshot */
+  --cream: oklch(0.945 0.018 75);       /* #f1e9e0 panel bg */
+  --cream-foreground: oklch(0.22 0.03 265);
+  --gold: oklch(0.745 0.068 75);        /* #c5a982 accent */
+  --gold-foreground: oklch(0.99 0 0);
+  --ink: oklch(0.22 0.03 265);          /* dark navy for headings */
+
   --background: oklch(1 0 0);
 
   --foreground: oklch(0.129 0.042 264.695);
