@@ -9,8 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as NyheterRouteImport } from './routes/nyheter'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as GalleriRouteImport } from './routes/galleri'
+import { Route as BokaRumRouteImport } from './routes/boka-rum'
+import { Route as BokaKonferensRouteImport } from './routes/boka-konferens'
 import { Route as IndexRouteImport } from './routes/index'
 
+const NyheterRoute = NyheterRouteImport.update({
+  id: '/nyheter',
+  path: '/nyheter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleriRoute = GalleriRouteImport.update({
+  id: '/galleri',
+  path: '/galleri',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BokaRumRoute = BokaRumRouteImport.update({
+  id: '/boka-rum',
+  path: '/boka-rum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BokaKonferensRoute = BokaKonferensRouteImport.update({
+  id: '/boka-konferens',
+  path: '/boka-konferens',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +49,102 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/boka-konferens': typeof BokaKonferensRoute
+  '/boka-rum': typeof BokaRumRoute
+  '/galleri': typeof GalleriRoute
+  '/kontakt': typeof KontaktRoute
+  '/nyheter': typeof NyheterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/boka-konferens': typeof BokaKonferensRoute
+  '/boka-rum': typeof BokaRumRoute
+  '/galleri': typeof GalleriRoute
+  '/kontakt': typeof KontaktRoute
+  '/nyheter': typeof NyheterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/boka-konferens': typeof BokaKonferensRoute
+  '/boka-rum': typeof BokaRumRoute
+  '/galleri': typeof GalleriRoute
+  '/kontakt': typeof KontaktRoute
+  '/nyheter': typeof NyheterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/boka-konferens'
+    | '/boka-rum'
+    | '/galleri'
+    | '/kontakt'
+    | '/nyheter'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/boka-konferens'
+    | '/boka-rum'
+    | '/galleri'
+    | '/kontakt'
+    | '/nyheter'
+  id:
+    | '__root__'
+    | '/'
+    | '/boka-konferens'
+    | '/boka-rum'
+    | '/galleri'
+    | '/kontakt'
+    | '/nyheter'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BokaKonferensRoute: typeof BokaKonferensRoute
+  BokaRumRoute: typeof BokaRumRoute
+  GalleriRoute: typeof GalleriRoute
+  KontaktRoute: typeof KontaktRoute
+  NyheterRoute: typeof NyheterRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/nyheter': {
+      id: '/nyheter'
+      path: '/nyheter'
+      fullPath: '/nyheter'
+      preLoaderRoute: typeof NyheterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galleri': {
+      id: '/galleri'
+      path: '/galleri'
+      fullPath: '/galleri'
+      preLoaderRoute: typeof GalleriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/boka-rum': {
+      id: '/boka-rum'
+      path: '/boka-rum'
+      fullPath: '/boka-rum'
+      preLoaderRoute: typeof BokaRumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/boka-konferens': {
+      id: '/boka-konferens'
+      path: '/boka-konferens'
+      fullPath: '/boka-konferens'
+      preLoaderRoute: typeof BokaKonferensRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +157,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BokaKonferensRoute: BokaKonferensRoute,
+  BokaRumRoute: BokaRumRoute,
+  GalleriRoute: GalleriRoute,
+  KontaktRoute: KontaktRoute,
+  NyheterRoute: NyheterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
