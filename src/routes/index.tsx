@@ -99,7 +99,18 @@ function Index() {
           </div>
         </div>
       </section>
+
+      {/* Vision section – editorial tokens with brand CTAs */}
+      <VisionSection />
+      <section className="bg-cream px-6 pb-24">
+        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-4">
+          <BrandButton variant="primary">Boka ditt rum</BrandButton>
+          <BrandButton variant="outline">Läs vår historia</BrandButton>
+          <BrandButton variant="ghost">Kontakta oss</BrandButton>
+        </div>
+      </section>
     </div>
   );
 }
+
 
