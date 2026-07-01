@@ -52,6 +52,9 @@ function Index() {
 
       {/* Welcome / intro copy section */}
       <WelcomeSection />
+
+      {/* Sustainability goals grid */}
+      <SustainabilityGoals />
     </div>
   );
 }
