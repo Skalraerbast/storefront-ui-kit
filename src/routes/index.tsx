@@ -6,6 +6,7 @@ import { VisionSection } from "@/components/VisionSection";
 import { WelcomeSection } from "@/components/WelcomeSection";
 import { SustainabilityGoals } from "@/components/SustainabilityGoals";
 import { GoodToKnow } from "@/components/GoodToKnow";
+import { Footer } from "@/components/Footer";
 
 
 
