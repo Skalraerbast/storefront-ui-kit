@@ -126,9 +126,9 @@ function RoomCard({ room }: { room: Room }) {
           Vardagspris {room.weekdayPrice} kr / Helgpris {room.weekendPrice} kr
         </p>
         <div className="mt-auto flex justify-center gap-3 pt-4">
-          {room.id === "enkelrum" ? (
+          {room.id === "enkelrum" || room.id === "dubbelrum" ? (
             <Link
-              to="/rum/enkelrum"
+              to={room.id === "enkelrum" ? "/rum/enkelrum" : "/rum/dubbelrum"}
               className="border border-[#c5a982] px-5 py-2 text-xs uppercase tracking-[2px] text-[#2b2725] transition hover:bg-[#c5a982] hover:text-white"
             >
               Läs mer
