@@ -1,4 +1,5 @@
 import { Facebook, Instagram } from "lucide-react";
+import logoAsset from "@/assets/lilla-hotellet-logo.png.asset.json";
 
 export function Footer() {
   return (
@@ -8,10 +9,7 @@ export function Footer() {
           {/* Logo + socials */}
           <div>
             <a href="/" className="inline-block leading-none">
-              <span className="block font-script text-3xl">Lilla</span>
-              <span className="block font-display text-2xl tracking-[0.25em]">
-                HOTELLET
-              </span>
+              <img src={logoAsset.url} alt="Lilla Hotellet" className="h-16 w-auto" />
             </a>
             <div className="mt-6 flex items-center gap-4">
               <a

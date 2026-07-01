@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
+import logoAsset from "@/assets/lilla-hotellet-logo.png.asset.json";
 
 const navItems = [
   { to: "/", label: "Hem" },
@@ -54,12 +55,11 @@ export function Header() {
       <div className="bg-header text-header-foreground">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-8 px-6 py-6 lg:px-12">
           <Link to="/" className="shrink-0 leading-none" aria-label="Lilla Hotellet – hem">
-            <span className="block font-script text-5xl leading-none text-header-foreground">
-              Lilla
-            </span>
-            <span className="mt-1 block font-display text-[2.25rem] leading-none tracking-[0.15em] text-header-foreground">
-              HOTELLET
-            </span>
+            <img
+              src={logoAsset.url}
+              alt="Lilla Hotellet"
+              className="h-16 w-auto md:h-20"
+            />
           </Link>
 
           {/* Desktop nav */}
