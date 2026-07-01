@@ -6,6 +6,7 @@ import { VisionSection } from "@/components/VisionSection";
 import { WelcomeSection } from "@/components/WelcomeSection";
 import { SustainabilityGoals } from "@/components/SustainabilityGoals";
 import { GoodToKnow } from "@/components/GoodToKnow";
+import { RoomsBookingSection } from "@/components/RoomsBookingSection";
 import { Footer } from "@/components/Footer";
 import logoAsset from "@/assets/lilla-hotellet-logo.png.asset.json";
 
@@ -67,6 +68,9 @@ function Index() {
 
       {/* Bra att veta – practical info cards */}
       <GoodToKnow />
+
+      {/* Rooms & booking form */}
+      <RoomsBookingSection />
 
       {/* Footer */}
       <Footer />
