@@ -15,6 +15,7 @@ import { Route as GalleriRouteImport } from './routes/galleri'
 import { Route as BokaRumRouteImport } from './routes/boka-rum'
 import { Route as BokaKonferensRouteImport } from './routes/boka-konferens'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RumEnkelrumRouteImport } from './routes/rum.enkelrum'
 
 const NyheterRoute = NyheterRouteImport.update({
   id: '/nyheter',
@@ -46,6 +47,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RumEnkelrumRoute = RumEnkelrumRouteImport.update({
+  id: '/rum/enkelrum',
+  path: '/rum/enkelrum',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/galleri': typeof GalleriRoute
   '/kontakt': typeof KontaktRoute
   '/nyheter': typeof NyheterRoute
+  '/rum/enkelrum': typeof RumEnkelrumRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/galleri': typeof GalleriRoute
   '/kontakt': typeof KontaktRoute
   '/nyheter': typeof NyheterRoute
+  '/rum/enkelrum': typeof RumEnkelrumRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/galleri': typeof GalleriRoute
   '/kontakt': typeof KontaktRoute
   '/nyheter': typeof NyheterRoute
+  '/rum/enkelrum': typeof RumEnkelrumRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/galleri'
     | '/kontakt'
     | '/nyheter'
+    | '/rum/enkelrum'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/galleri'
     | '/kontakt'
     | '/nyheter'
+    | '/rum/enkelrum'
   id:
     | '__root__'
     | '/'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/galleri'
     | '/kontakt'
     | '/nyheter'
+    | '/rum/enkelrum'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,6 +118,7 @@ export interface RootRouteChildren {
   GalleriRoute: typeof GalleriRoute
   KontaktRoute: typeof KontaktRoute
   NyheterRoute: typeof NyheterRoute
+  RumEnkelrumRoute: typeof RumEnkelrumRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -152,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rum/enkelrum': {
+      id: '/rum/enkelrum'
+      path: '/rum/enkelrum'
+      fullPath: '/rum/enkelrum'
+      preLoaderRoute: typeof RumEnkelrumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -162,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleriRoute: GalleriRoute,
   KontaktRoute: KontaktRoute,
   NyheterRoute: NyheterRoute,
+  RumEnkelrumRoute: RumEnkelrumRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
