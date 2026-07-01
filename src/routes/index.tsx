@@ -20,7 +20,13 @@ function Index() {
     <div className="min-h-screen bg-background">
       <Header />
       <section className="relative isolate flex min-h-[70vh] items-center justify-center overflow-hidden bg-header/90 px-6 py-24 text-header-foreground">
-        <div className="mx-auto max-w-3xl text-center">
+        <img
+          src={logoAsset.url}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 m-auto h-[80%] w-auto max-w-none opacity-[0.06]"
+        />
+        <div className="relative mx-auto max-w-3xl text-center">
           <h1 className="font-display text-4xl tracking-wide sm:text-5xl lg:text-6xl">
             Välkommen hem till Lilla Hotellet
           </h1>
