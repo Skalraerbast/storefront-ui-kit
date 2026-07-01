@@ -28,6 +28,13 @@ export function Header() {
     setAnnounceIdx((i) => (i - 1 + announcements.length) % announcements.length);
   const next = () => setAnnounceIdx((i) => (i + 1) % announcements.length);
 
+  useEffect(() => {
+    const id = window.setInterval(next, ROTATE_MS);
+    return () => window.clearInterval(id);
+  }, []);
+
+  const current = announcements[announceIdx];
+
   return (
     <header className="w-full">
       {/* Announcement bar */}
@@ -41,7 +48,13 @@ export function Header() {
             <ChevronLeft className="h-4 w-4" />
           </button>
           <p className="flex-1 text-center font-semibold tracking-wide">
-            {announcements[announceIdx]}
+            {current.to ? (
+              <Link to={current.to} className="transition hover:underline underline-offset-4">
+                {current.label}
+              </Link>
+            ) : (
+              current.label
+            )}
           </p>
           <button
             onClick={next}
