@@ -3,6 +3,8 @@ import { Header } from "@/components/Header";
 import { BrandButton } from "@/components/ui/BrandButton";
 import { StaffedHours } from "@/components/StaffedHours";
 import { VisionSection } from "@/components/VisionSection";
+import { WelcomeSection } from "@/components/WelcomeSection";
+
 
 
 export const Route = createFileRoute("/")({
@@ -46,6 +48,9 @@ function Index() {
           <BrandButton variant="ghost">Kontakta oss</BrandButton>
         </div>
       </section>
+
+      {/* Welcome / intro copy section */}
+      <WelcomeSection />
     </div>
   );
 }
