@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as BokaRumRouteImport } from './routes/boka-rum'
+import { Route as BokaKonferensRouteImport } from './routes/boka-konferens'
 import { Route as IndexRouteImport } from './routes/index'
 
 const BokaRumRoute = BokaRumRouteImport.update({
   id: '/boka-rum',
   path: '/boka-rum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BokaKonferensRoute = BokaKonferensRouteImport.update({
+  id: '/boka-konferens',
+  path: '/boka-konferens',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/boka-konferens': typeof BokaKonferensRoute
   '/boka-rum': typeof BokaRumRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/boka-konferens': typeof BokaKonferensRoute
   '/boka-rum': typeof BokaRumRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/boka-konferens': typeof BokaKonferensRoute
   '/boka-rum': typeof BokaRumRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/boka-rum'
+  fullPaths: '/' | '/boka-konferens' | '/boka-rum'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/boka-rum'
-  id: '__root__' | '/' | '/boka-rum'
+  to: '/' | '/boka-konferens' | '/boka-rum'
+  id: '__root__' | '/' | '/boka-konferens' | '/boka-rum'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BokaKonferensRoute: typeof BokaKonferensRoute
   BokaRumRoute: typeof BokaRumRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/boka-rum'
       fullPath: '/boka-rum'
       preLoaderRoute: typeof BokaRumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/boka-konferens': {
+      id: '/boka-konferens'
+      path: '/boka-konferens'
+      fullPath: '/boka-konferens'
+      preLoaderRoute: typeof BokaKonferensRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BokaKonferensRoute: BokaKonferensRoute,
   BokaRumRoute: BokaRumRoute,
 }
 export const routeTree = rootRouteImport
