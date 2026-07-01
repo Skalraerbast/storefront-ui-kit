@@ -15,6 +15,7 @@ import { Route as GalleriRouteImport } from './routes/galleri'
 import { Route as BokaRumRouteImport } from './routes/boka-rum'
 import { Route as BokaKonferensRouteImport } from './routes/boka-konferens'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RumGrandLitRouteImport } from './routes/rum.grand-lit'
 import { Route as RumEnkelrumRouteImport } from './routes/rum.enkelrum'
 import { Route as RumDubbelrumRouteImport } from './routes/rum.dubbelrum'
 
@@ -48,6 +49,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RumGrandLitRoute = RumGrandLitRouteImport.update({
+  id: '/rum/grand-lit',
+  path: '/rum/grand-lit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RumEnkelrumRoute = RumEnkelrumRouteImport.update({
   id: '/rum/enkelrum',
   path: '/rum/enkelrum',
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/nyheter': typeof NyheterRoute
   '/rum/dubbelrum': typeof RumDubbelrumRoute
   '/rum/enkelrum': typeof RumEnkelrumRoute
+  '/rum/grand-lit': typeof RumGrandLitRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByTo {
   '/nyheter': typeof NyheterRoute
   '/rum/dubbelrum': typeof RumDubbelrumRoute
   '/rum/enkelrum': typeof RumEnkelrumRoute
+  '/rum/grand-lit': typeof RumGrandLitRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/nyheter': typeof NyheterRoute
   '/rum/dubbelrum': typeof RumDubbelrumRoute
   '/rum/enkelrum': typeof RumEnkelrumRoute
+  '/rum/grand-lit': typeof RumGrandLitRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/nyheter'
     | '/rum/dubbelrum'
     | '/rum/enkelrum'
+    | '/rum/grand-lit'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/nyheter'
     | '/rum/dubbelrum'
     | '/rum/enkelrum'
+    | '/rum/grand-lit'
   id:
     | '__root__'
     | '/'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/nyheter'
     | '/rum/dubbelrum'
     | '/rum/enkelrum'
+    | '/rum/grand-lit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,6 +144,7 @@ export interface RootRouteChildren {
   NyheterRoute: typeof NyheterRoute
   RumDubbelrumRoute: typeof RumDubbelrumRoute
   RumEnkelrumRoute: typeof RumEnkelrumRoute
+  RumGrandLitRoute: typeof RumGrandLitRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rum/grand-lit': {
+      id: '/rum/grand-lit'
+      path: '/rum/grand-lit'
+      fullPath: '/rum/grand-lit'
+      preLoaderRoute: typeof RumGrandLitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/rum/enkelrum': {
       id: '/rum/enkelrum'
       path: '/rum/enkelrum'
@@ -204,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   NyheterRoute: NyheterRoute,
   RumDubbelrumRoute: RumDubbelrumRoute,
   RumEnkelrumRoute: RumEnkelrumRoute,
+  RumGrandLitRoute: RumGrandLitRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
