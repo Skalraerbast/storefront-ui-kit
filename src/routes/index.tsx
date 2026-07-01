@@ -9,7 +9,7 @@ import { GoodToKnow } from "@/components/GoodToKnow";
 import { RoomsBookingSection } from "@/components/RoomsBookingSection";
 import { ConferenceSection } from "@/components/ConferenceSection";
 import { Footer } from "@/components/Footer";
-import logoAsset from "@/assets/lilla-hotellet-logo.png.asset.json";
+import { HeroCarousel } from "@/components/HeroCarousel";
 
 
 
