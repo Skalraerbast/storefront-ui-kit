@@ -1,4 +1,5 @@
 import { Facebook, Instagram } from "lucide-react";
+import logoAsset from "@/assets/lilla-hotellet-logo.png.asset.json";
 
 export function Footer() {
   return (
