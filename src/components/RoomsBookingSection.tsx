@@ -384,12 +384,12 @@ export function RoomsBookingSection({ rooms = DEFAULT_ROOMS }: RoomsBookingSecti
           <p className="mx-auto mt-4 max-w-2xl font-sans text-[#4a443f]">
             Vi erbjuder förmånliga priser för dig som behöver stanna en längre tid.
           </p>
-          <a
-            href="#langtid"
+          <Link
+            to="/langtidsboende"
             className="mt-6 inline-block border border-[#c5a982] px-6 py-3 text-xs uppercase tracking-[2px] text-[#2b2725] transition hover:bg-[#c5a982] hover:text-white"
           >
             Läs om långtidsboende & offert
-          </a>
+          </Link>
         </div>
 
         {/* Booking form */}
